@@ -1,3 +1,7 @@
+:root {
+    --sidebar-img-aspect-ratio: calc(1920 / 3413);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -9,16 +13,17 @@ html, body {
 }
 
 body>.main-container {
-    height: 100vh;
+
+    --height: 100vh;
+    height: var(--height);
     display: flex;
     justify-content: center;
 
 }
 
 .main-container .sidebar{
-    width: auto;
+    width: calc(var(--height) * var(--sidebar-img-aspect-ratio));
     height: 100%;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,6 +31,21 @@ body>.main-container {
     background-color: rgb(77, 77, 77);
     background-size: auto 100%;
     color: whitesmoke;
+}
+
+.main-container .sidebar .sidebar-background {
+    background-color: rgb(0, 0, 0, 0.3);
+    padding: 0 10px;
+}
+
+.main-container .sidebar .sidebar-content {
+    width: min-content;
+    margin: 0 auto;
+    
+}
+
+.main-container .sidebar .sidebar-content h1 {
+    white-space: nowrap;
 }
 
 
