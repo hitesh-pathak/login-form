@@ -1,5 +1,10 @@
+/* preliminary definitions and values */
+
 :root {
     --sidebar-img-aspect-ratio: calc(1920 / 3413);
+    --faded-foreground: rgb(93, 93, 93);
+    --almost-white-foreground: whitesmoke;
+    --dark-gray-bgc: rgb(77, 77, 77); 
 }
 
 * {
@@ -7,6 +12,7 @@
 }
 
 html, body {
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -21,6 +27,9 @@ body>.main-container {
 
 }
 
+
+/* sidebar styling */
+
 .main-container .sidebar{
     width: calc(var(--height) * var(--sidebar-img-aspect-ratio));
     height: 100%;
@@ -28,27 +37,58 @@ body>.main-container {
     flex-direction: column;
     justify-content: center;
     background: border-box url(./nick-nice-gPm8h3DS1s4-unsplash.jpg) no-repeat;
-    background-color: rgb(77, 77, 77);
+    background-color: var(--dark-gray-bgc);
     background-size: auto 100%;
-    color: whitesmoke;
+    color: var(--almost-white-foreground);
 }
 
 .main-container .sidebar .sidebar-background {
-    background-color: rgb(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0, 0.3);    /* translucent black for readablity of text*/
     padding: 0 10px;
 }
 
 .main-container .sidebar .sidebar-content {
-    width: min-content;
+    width: min-content;                         /* 1. with according to text */
     margin: 0 auto;
     
 }
 
 .main-container .sidebar .sidebar-content h1 {
-    white-space: nowrap;
+    white-space: nowrap;                        /* for constant width (1.) */
 }
 
 
+/* main content */
 
+.main-content {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* form styling */
+
+.main-content form>div {                /* select form rows, with maybe multiple elements*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: clamp(5%, 30px, 30px) auto;
+}
+
+.main-container form .form-div {
+    margin: 0 20% 0 0;                  /* seperate inline form fields*/
+}
+
+.main-container form .form-div {
+    margin: 0 20% 0 0;
+}
+
+.main-container form .label {
+    font-size: 0.7rem;
+    color: var(--faded-foreground);
+}
 
 
