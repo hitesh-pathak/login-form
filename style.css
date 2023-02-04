@@ -5,9 +5,10 @@
     --faded-foreground: rgb(93, 93, 93);
     --almost-white-foreground: whitesmoke;
     --dark-gray-bgc: rgb(77, 77, 77);
-    --default-text-input-border: rgb(229, 231, 235);
+    --default-text-input-border: rgb(195, 196, 199);
     --selected-text-input-border: rgb(48, 154, 241);
     --form-error-color: red;
+    --form-correct-color: rgb(62, 197, 62);
 }
 
 * {
@@ -103,12 +104,13 @@ body>.main-container {
 
 .main-content form input[type=text],
 .main-content form input[type=email],
+.main-content form input[type=password],
 .main-content form input[type=tel]{
     appearance: none;
     display: inline-block;
     padding: 5px 10px;
     outline: 1px solid var(--default-text-input-border);
-    border: 1px solid rgb(0, 0 , 0 , 0);                    /*put invisible but ROUND border*/
+    border: 1px solid rgb(0, 0 , 0 , 0);                    /* Invisible but ROUND border */
     border-radius: 3px;
 }
 
@@ -128,7 +130,8 @@ body>.main-container {
 
 /* Style Password boxes seperately: Red Outline unless posswords are valid, match */
 
-.main-container form .error {
+.main-container form input[type=password].error,
+.main-container form input[type=password]:invalid {
     appearance: none;
     display: inline-block;
     padding: 5px 10px;
@@ -137,9 +140,18 @@ body>.main-container {
     border-radius: 3px;
 }
 
-.main-container form .error:focus,
-.main-container form .error:focus-visible {
-    box-shadow: 0px 0px 5px 0px var(--form-error-color)
+.main-container form input[type=password].error:focus-visible,
+.main-container form input[type=password]:invalid:focus-visible{
+    box-shadow: 0px 0px 5px 0px var(--form-error-color);
 }
+
+.main-container form input[type=password].correct:valid{
+    outline-color: var(--form-correct-color);
+}
+.main-container form input[type=password].correct:valid:focus-visible{
+    box-shadow: 0px 0px 5px 0px var(--form-correct-color);
+}
+
+
 
 

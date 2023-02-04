@@ -77,9 +77,11 @@
                             class="error"
                             type="password"
                             id="password"
-                            name="password"/>
+                            name="password"
+                            required
+                            minlength="8"/>
                             <br/>
-                            <label for="password" class=" label password-error">*Passwords do not match</label>    
+                            <label for="password" class="label password-error">*Passwords do not match</label>    
                         </div>
                         <div class="form-div">
                             <label for="conf-password" class="label">CONFIRM PASSWORD</label>
@@ -88,7 +90,9 @@
                             class="error"
                             type="password"
                             id="conf-password"
-                            name="conf-password"/>
+                            name="conf-password"
+                            required
+                            minlength="8"/>
                         </div>
                     </div>
                 </form>
