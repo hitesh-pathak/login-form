@@ -11,7 +11,6 @@ function matchValidStrings (str1, str2) {
 function updatePasswordInputs(passArray, errMsg, errMsgTxt) {
 
     const isMatchPasswords = matchValidStrings(passArray[0].value, passArray[1].value);
-    console.log(isMatchPasswords)
 
     if (isMatchPasswords) {
         passArray.forEach((e) => {

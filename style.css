@@ -26,6 +26,7 @@ body>.main-container {
 
     --height: 100vh;
     height: var(--height);
+    --sidebar-width: calc(var(--height) * var(--sidebar-img-aspect-ratio));
     display: flex;
     justify-content: center;
 
@@ -35,7 +36,9 @@ body>.main-container {
 /* sidebar styling */
 
 .main-container .sidebar{
-    width: calc(var(--height) * var(--sidebar-img-aspect-ratio));
+
+    max-width: var(--sidebar-width);
+    flex: 1 1 var(--sidebar-width);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -46,29 +49,31 @@ body>.main-container {
     color: var(--almost-white-foreground);
 }
 
-.main-container .sidebar .sidebar-background {
-    background-color: rgb(0, 0, 0, 0.3);    /* translucent black for readablity of text*/
-    padding: 0 10px;
-}
-
 .main-container .sidebar .sidebar-content {
-    width: min-content;                         /* 1. with according to text */
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;                         /* 1. with according to text */
     
 }
 
-.main-container .sidebar .sidebar-content h1 {
-    white-space: nowrap;                        /* for constant width (1.) */
-}
 
 
 /* main content */
 
-.main-content {
+.main-container .main-content {
     padding: 0 10px;
+    width: clamp(60%, calc(100% - var(--sidebar-width)), calc(100% - var(--sidebar-width)));
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.main-container .main-content .header {
+    flex: 1 1 auto;
+    height: min-content;
+}
+.main-container .main-content .form-container {
+    flex: 1 1 auto;
 }
 
 
